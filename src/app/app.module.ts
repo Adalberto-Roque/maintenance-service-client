@@ -9,12 +9,14 @@ import { MaintenaceServiceDetailPageComponent } from './maintenance/pages/mainte
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { ConfirmationDialog } from './maintenance/dialogs/confirmation-dialog/confirmation-dialog.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MaintenanceServicesPage,
-    MaintenaceServiceDetailPageComponent
+    MaintenaceServiceDetailPageComponent,
+    ConfirmationDialog
   ],
   imports: [
     BrowserModule,

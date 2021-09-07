@@ -8,16 +8,16 @@ import { map } from "rxjs/operators";
 
 
 @Injectable({
-    providedIn:'root'
+    providedIn: 'root'
 })
 
-export class TruckMaintenanceServiceSerivce{
+export class TruckMaintenanceServiceSerivce {
 
     private serverUri: string = environment.serverUri;
 
-    constructor(private http:HttpClient){}
+    constructor(private http: HttpClient) { }
 
-    get(filters:IFilterCommon){
+    get(filters: IFilterCommon) {
 
         let params = this.loadParams(filters);
 
@@ -34,23 +34,23 @@ export class TruckMaintenanceServiceSerivce{
 
     }
 
-    getById(id:number){
+    getById(id: number) {
         return this.http.get<ITruckMaintenanceService[]>(`${this.serverUri}TruckMaintenanceServices/${id}`);
     }
 
-    save(entity: ITruckMaintenanceService){
+    save(entity: ITruckMaintenanceService) {
         return this.http.post(`${this.serverUri}TruckMaintenanceServices`, entity);
     }
 
-    update(id:number, entity: ITruckMaintenanceService){
+    update(id: number, entity: ITruckMaintenanceService) {
         return this.http.put(`${this.serverUri}TruckMaintenanceServices/${id}`, entity);
     }
 
-    getTypes(){
+    getTypes() {
         return this.http.get<ITypeTruckMaintenanceServices[]>(`${this.serverUri}TruckMaintenanceServices/catalog/types`);
     }
 
-    delete(id:number){
+    delete(id: number) {
         return this.http.delete(`${this.serverUri}TruckMaintenanceServices/${id}`);
     }
 
@@ -64,12 +64,8 @@ export class TruckMaintenanceServiceSerivce{
             params = params.append('ascending', filterCommon.ascending.toString());
             params = params.append('orderBy', filterCommon.orderBy);
         }
-        if (filterCommon.page) {
-            params = params.append('page', filterCommon.page.toString());
-        }
-        if (filterCommon.pageSize) {
-            params = params.append('rowCount', filterCommon.pageSize.toString());
-        }
+        params = params.append('page', (filterCommon.page + 1).toString());
+        params = params.append('PageSize', filterCommon.pageSize.toString());
         return params;
     }
 
