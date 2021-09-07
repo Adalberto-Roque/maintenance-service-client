@@ -1,0 +1,20 @@
+
+@import 'styles-bulma.scss';
+@import 'styles-material.scss';
+
+
+
+html { 
+    white-space: normal;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    height: 100%; 
+  }
+  
+  body{
+    margin: 0px;
+    height: 100%; 
+    overscroll-behavior-y: contain;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+  }
+// body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

@@ -1,0 +1,28 @@
+
+.mat-form-field-appearance-outline .mat-form-field-infix {
+    padding: 0.7em 0 0.7em 0;
+  }
+  
+  .mat-button, .mat-icon-button, .mat-stroked-button {
+    color: inherit;
+    background: transparent;
+  }
+  
+  .mat-form-field-infix {
+    padding: 0.5em 0;
+    border-top: 0.54375em solid transparent;
+  }
+  
+  .mat-form-field:not(.mat-form-field-appearance-legacy) .mat-form-field-prefix .mat-icon-button, .mat-form-field:not(.mat-form-field-appearance-legacy) .mat-form-field-suffix .mat-icon-button {
+    width: 2.2em !important;
+    height: 2.2em !important;
+  }
+  
+  .mat-form-field-wrapper {
+    padding-bottom: 0; 
+  }
+  
+  .mat-form-field-appearance-outline .mat-form-field-outline {
+    background-color: white;
+    border-radius: 5px;
+  }

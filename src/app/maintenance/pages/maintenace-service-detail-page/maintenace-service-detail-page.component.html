@@ -1,0 +1,92 @@
+<div class="is-flex">
+    <button mat-icon-button (click)="cancel()"
+    [disabled]="loading">
+        <mat-icon>arrow_back</mat-icon>
+    </button>
+    <h2>Add Truck Mainteance</h2>
+</div>
+
+<mat-card>
+    <form [formGroup]="form" (ngSubmit)="save()">
+        <div class="form-inputs">
+            <mat-label>Truck</mat-label>
+            <mat-form-field appearance="outline">
+                <mat-select formControlName="idTruck">
+                    <mat-option *ngFor="let truck of trucks"
+                        [value]="truck.idTruck">
+                        {{truck.number}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+
+        <div class="form-inputs">
+            <mat-label>Type</mat-label>
+            <mat-form-field appearance="outline">
+                <mat-select formControlName="idTypeTruckMaintenanceService">
+                    <mat-option *ngFor="let type of types"
+                    [value]="type.idTypeTruckMaintenanceService">
+                    {{type.typeDescription}}
+                </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+
+        <div class="form-inputs">
+            <mat-label>Driver</mat-label>
+            <mat-form-field appearance="outline">
+                <mat-select formControlName="driver">
+                    <mat-option *ngFor="let driver of drivers" 
+                        [value]="driver.idEmployee">
+                        {{driver.firstName}} {{driver.lastName}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+
+        <div class="form-inputs">
+            <mat-label>Dispatcher</mat-label>
+            <mat-form-field appearance="outline">
+                <mat-select formControlName="dispatcher">
+                    <mat-option *ngFor="let dispatcher of dispatchers" 
+                        [value]="dispatcher.idEmployee">
+                        {{dispatcher.firstName}} {{dispatcher.lastName}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+
+        <div class="form-inputs">
+            <mat-label>Due Date</mat-label>
+            <mat-form-field appearance="outline">
+                <input type="datetime-local" matInput formControlName="dueDate">
+            </mat-form-field>
+        </div>
+
+        <div class="form-inputs">
+            <mat-label>Mechanical</mat-label>
+            <mat-form-field appearance="outline">
+                <mat-select  formControlName="mechanical">
+                    <mat-option *ngFor="let mechanical of mechanicals" 
+                        [value]="mechanical.idEmployee">
+                        {{mechanical.firstName}} {{mechanical.lastName}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+
+        <div mat-card-actions align="end" class="py-4">
+            <button mat-raised-button class="mx-2" color="primary"
+                [disabled]="loading">
+                <mat-icon>save</mat-icon>
+                Save
+            </button>
+            <button type="button" mat-raised-button class="mx-2"
+            (click)="cancel()"
+            [disabled]="loading">
+                Cancel
+            </button>
+        </div>
+
+    </form>
+</mat-card>
